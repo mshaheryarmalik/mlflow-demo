@@ -11,6 +11,7 @@ MLflow features demonstrated:
 
 import os
 import random
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import matplotlib.pyplot as plt
@@ -31,7 +32,8 @@ from training.model import build_model
 if TYPE_CHECKING:
     from training.model import SimpleCNN
 
-load_dotenv()
+# Load .env from repo root
+load_dotenv(Path(__file__).resolve().parents[3] / ".env")
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────

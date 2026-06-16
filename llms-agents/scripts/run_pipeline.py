@@ -17,8 +17,14 @@ Usage:
 
 import argparse
 import time
+from pathlib import Path
 
 import mlflow
+import mlflow.genai
+from dotenv import load_dotenv
+
+# Load .env from repo root
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 from agents.config import configure_mlflow, get_ollama_model
 from agents.graph import pipeline
@@ -44,7 +50,7 @@ def register_prompts() -> None:
     }
     for name, template in prompts.items():
         try:
-            mlflow.register_prompt(name=name, template=template)
+            mlflow.genai.register_prompt(name=name, template=template)
             print(f"  [prompt-registry] Registered '{name}'")
         except Exception:
             # Prompt may already exist — that's fine
