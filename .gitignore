@@ -216,3 +216,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# MLflow local artifacts
+mlruns/
+mlartifacts/
+
+# uv
+.python-version
+
+# Downloaded datasets
+model-training/data/
