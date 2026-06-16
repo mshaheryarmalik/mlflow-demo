@@ -16,6 +16,7 @@ Usage:
 
 import argparse
 import os
+from pathlib import Path
 
 import mlflow
 from dotenv import load_dotenv
@@ -24,7 +25,8 @@ from training.config import TrainingConfig
 from training.evaluate import promote_to_champion
 from training.train import train
 
-load_dotenv()
+# Load .env from repo root (two levels up from this script)
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 
 def run_hyperparameter_sweep() -> None:

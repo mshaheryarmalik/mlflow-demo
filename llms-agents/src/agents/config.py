@@ -3,11 +3,13 @@ Shared MLflow configuration and tracking setup for the llms-agents package.
 """
 
 import os
+from pathlib import Path
 
 import mlflow
 from dotenv import load_dotenv
 
-load_dotenv()
+# Load .env from repo root
+load_dotenv(Path(__file__).resolve().parents[3] / ".env")
 
 
 def configure_mlflow(experiment_name: str = "llm-agents-demo") -> None:
